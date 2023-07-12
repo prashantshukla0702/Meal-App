@@ -41,7 +41,7 @@ function renderDetails(food_details) {
     let ingredients = document.getElementById('ingredeints'); // Element to add the list of ingredients.
     ingredients.innerHTML = "";
     for (let i = 1; i <= 20; i++) {
-        if (details[0]['strIngredient' + i] !== "") {
+        if (details[0]['strIngredient' + i] !== "" && details[0]['strIngredient' + i] !== null) {
             let li = document.createElement('li');
             ingredeintName = details[0]['strIngredient' + i];
             ingredeintQty = details[0]['strMeasure' + i];
