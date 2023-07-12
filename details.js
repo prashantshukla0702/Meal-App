@@ -9,7 +9,7 @@ async function fetchDetails() {
     let params = new URLSearchParams(window.location.search);
     let mealID = params.get('mealID');  // Get the value of mealID from url
     try {
-        let res = await fetch('http://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID); // Fetch the meal details using meal-id  
+        let res = await fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID); // Fetch the meal details using meal-id  
         let data = await res.json();
         food_details = data;
         renderDetails(food_details);

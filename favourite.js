@@ -26,7 +26,7 @@ async function renderFavFood() {
     let favourites = localStorage.getItem('favourites'); // Array to store the favourite meal. 
     let favMeals = JSON.parse(favourites); // storing a meal array into a  variable.
     favMeals.map(async (foodID) => {
-        let res = await fetch('http://www.themealdb.com/api/json/v1/1/lookup.php?i=' + foodID); // Fetch the meal details using meal-id.
+        let res = await fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + foodID); // Fetch the meal details using meal-id.
         let food = await res.json();
         let column = document.createElement('div');
         column.classList.add('col-md-4'); // create a column to show meal card.

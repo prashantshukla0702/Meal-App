@@ -13,7 +13,7 @@ function closeNav() {
 }
 
 window.onload = async () => { // this function will display indian meals on home page catalog.
-    let catalogData = await fetch('http://www.themealdb.com/api/json/v1/1/filter.php?a=Indian');
+    let catalogData = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Indian');
     let data = await catalogData.json();
     renderFoodCatalog(data);
     getFavBtn();
@@ -32,7 +32,7 @@ queryInput.addEventListener('keyup', async (e) => { // function to perform searc
     var queryFood = e.target.value;
     if (queryFood !== '') {
         try {
-            let res = await fetch('http://www.themealdb.com/api/json/v1/1/search.php?s=' + queryFood);
+            let res = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + queryFood);
             let data = await res.json(); // to convert the response into json format
             // foodList = data;
             renderFoodList(data);
