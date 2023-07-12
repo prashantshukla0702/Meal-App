@@ -39,7 +39,7 @@ async function renderFavFood() {
                 </div>
               </div>
               <div class="card-overlay">
-                <i data-id="${food.meals[0].idMeal}" class="fa fa-heart favBtn active"></i>
+                <i data-id="${food.meals[0].idMeal}" data-name="${food.meals[0].strMeal}" class="fa fa-heart favBtn active"></i>
                 <a href="./detail.html?mealID=${food.meals[0].idMeal}">
                 <p class="text-light">View Full recipe</p></a>
               </div>`;
@@ -50,12 +50,14 @@ async function renderFavFood() {
 }
 
 function removefromFavrourite(favouriteArr, e) {
-    let mealID = e.target.dataset.id;
+    let mealID = e.target.dataset.id; // retrieving the value of data-id of clicked element.
+    let mealName = e.target.dataset.name; // retrieving the value of data-name of clicked element.
     favouriteArr = JSON.parse(favouriteArr); // convert string into an array.
     let newfavouriteArr = favouriteArr.filter((id) => { // removing the meal id from from favourite list.
         return id != mealID
     });
     e.target.classList.remove('active');
+    alert(mealName + ' is removed from favourites');
     localStorage.setItem('favourites', JSON.stringify(newfavouriteArr)); // change the value of favourites in localstorage after removing a meal id from array.
     renderFavFood();
 }

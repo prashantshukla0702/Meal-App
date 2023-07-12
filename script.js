@@ -21,7 +21,6 @@ window.onload = async () => { // this function will display indian meals on home
 }
 function getFavBtn() {
     let favBtn = document.getElementsByClassName("favBtn"); // get all the favourite buttons.
-
     for (let i = 0; i < favBtn.length; i++) {
         favBtn[i].onclick = function (e) {
             addtoFavourite(e);
@@ -58,7 +57,7 @@ function renderFoodList(foodList) {
             li.innerHTML = `<img src="${food.strMealThumb}" height="50px" width="50px">
                             <a href="./detail.html?mealID=${food.idMeal}"><span>${food.strMeal}</span></a>
                             <div class="btnContainer">
-                            <i class="fa fa-heart favBtn ${(favouriteArr?.includes(food.idMeal)) ? "active" : ""}" data-id="${food.idMeal}"></i>
+                            <i class="fa fa-heart favBtn ${(favouriteArr?.includes(food.idMeal)) ? "active" : ""}" data-id="${food.idMeal}" data-name="${food.strMeal}"></i>
                             </div>`;
             list.append(li);
         });
@@ -83,7 +82,7 @@ function renderFoodCatalog(data) {
                 </div>
               </div>
               <div class="card-overlay">
-                <i data-id="${food.idMeal}" class="fa fa-heart favBtn ${(favouriteArr?.includes(food.idMeal)) ? "active" : ""}"></i>
+                <i class="fa fa-heart favBtn ${(favouriteArr?.includes(food.idMeal)) ? "active" : ""}" data-id="${food.idMeal}" data-name="${food.strMeal}"></i>
                 <a href="./detail.html?mealID=${food.idMeal}">
                 <p class="text-light">View Full recipe</p></a>
               </div>`;
@@ -95,21 +94,25 @@ function renderFoodCatalog(data) {
 function addtoFavourite(e) {
 
     let mealID = e.target.dataset.id; // retrieving the value of data-id of clicked element.
+    let mealName = e.target.dataset.name; // retrieving the value of data-name of clicked element.
     let favouriteArr = localStorage.getItem('favourites'); // retrieving value of favourites from localstorage.
     if (favouriteArr !== null) {
         if (!favouriteArr.includes(mealID)) {
             favouriteArr = JSON.parse(favouriteArr); // convert string into an array.
             favouriteArr.push(mealID);
-            e.target.classList.add('active'); // make favourite button active.
             localStorage.setItem('favourites', JSON.stringify(favouriteArr)); // change the value of favourites in localstorage after pushing new id.
+            e.target.classList.add('active'); // make favourite button active.
+            alert(mealName + ' is Added to favourites');
         } else {
-            e.target.classList.remove('active');
             removefromFavrourite(favouriteArr, mealID);
+            e.target.classList.remove('active');
+            alert(mealName + ' is removed from favourites');
         }
     } else {
         favourites.push(mealID);
-        e.target.classList.add('active')
         localStorage.setItem('favourites', JSON.stringify(favourites)); // set favourites array in localstorage.
+        e.target.classList.add('active');
+        alert(mealName + ' is Added to favourites');
     }
 }
 
