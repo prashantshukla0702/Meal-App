@@ -1,0 +1,274 @@
+/* Common css for all pages */
+* {
+  font-family: tangerine, sans-serif;
+}
+span,
+p {
+  font-size: 32px;
+  font-weight: 400;
+  color: #685e5e;
+}
+a {
+  text-decoration: none;
+}
+/***** Navbar *****/
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav li {
+  list-style: none;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 32px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+#mySidenav ul li {
+  color: black;
+  font-size: 24px;
+  position: relative;
+  margin-top: 10px;
+  top: 50px;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 35px;
+  font-size: 70px;
+  margin-left: 50px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+  background: #0000008f;
+  color: white;
+}
+.logo img {
+  height: 100px;
+}
+.hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  float: right;
+  color: white;
+}
+/* Home Page Css */
+.main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  background: url("./bg-2.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  height: 60vh;
+}
+input#keyword {
+  width: 45em;
+  background: white;
+  padding: 20px 25px;
+  font-size: 16px;
+  font-family: system-ui;
+  color: black;
+  transition: all 0.3s ease-in;
+  border: none;
+  outline: 1px dashed #ae0000;
+  border-radius: 10px;
+}
+input#keyword::placeholder {
+  color: black;
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-family: system-ui;
+}
+ul#foodlist {
+  list-style: none;
+  background: white;
+  padding: 10px 10px;
+  height: auto;
+  max-height: 250px;
+  width: 45em;
+  overflow-y: scroll;
+  margin: 2px 0px;
+  display: none;
+}
+ul#foodlist.show {
+  display: block;
+}
+ul#foodlist::-webkit-scrollbar {
+  background: #f5f5f5;
+  width: 8px;
+}
+ul#foodlist::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f8ad00;
+}
+ul#foodlist::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+ul#foodlist li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  margin-top: 10px;
+}
+.btnContainer i {
+  font-size: 20px;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+i.favBtn {
+  -webkit-text-stroke-width: 1px;
+  color: white;
+  -webkit-text-stroke-color: red;
+  cursor: pointer;
+}
+i.favBtn.active {
+  -webkit-text-stroke-width: 1px;
+  color: red;
+  -webkit-text-stroke-color: red;
+}
+/***** Catalog Css *****/
+.meal-card {
+  box-shadow: 0px 0px 23px 1px #aba9a9;
+  height: 300px;
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+}
+img.meal-img {
+  width: 100%;
+  object-fit: cover;
+  height: 220px;
+}
+.row {
+  --bs-gutter-y: 1.5rem;
+}
+.meal-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 18px;
+}
+.card-overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 32px;
+  flex-shrink: 1;
+  gap: 15px;
+  font-size: 32px;
+  transition: all 0.5s ease-in-out;
+}
+.meal-card:hover .card-overlay {
+  display: flex;
+}
+.rating i {
+  color: #ebc32f;
+  font-size: 14px;
+}
+/***** Detail Page Css *****/
+.meal-name {
+  height: 130px;
+  display: flex;
+  margin: auto;
+  position: relative;
+  font-size: 42px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#food-info img {
+  width: 100%;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+  height: 100%;
+  border-radius: 25px;
+  box-shadow: 0px 0px 35px 6px lightgrey;
+}
+#food-info .row {
+  --bs-gutter-x: 0px;
+}
+
+#food-info .col-md-5 {
+  background: white;
+  padding: 0px 30px;
+}
+#food-info .col-md-7 {
+  background: #efebe7;
+  padding: 30px;
+}
+
+ul#ingredeints li {
+  list-style: circle;
+  font-size: 24px;
+  font-weight: 500;
+  display: inline-block;
+  width: 50%;
+}
+#food-desc {
+  background: white;
+  margin: 30px 0;
+  padding: 30px;
+}
+#food-desc h2 {
+  font-size: 3rem;
+}
+/***** Responsive Css *****/
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  input#keyword {
+    width: 35em;
+  }
+  ul#foodlist {
+    width: 35em;
+  }
+}
+@media screen and (max-width: 768px) {
+  input#keyword {
+    width: 18em;
+  }
+  ul#foodlist {
+    width: 18em;
+  }
+}
