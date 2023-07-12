@@ -58,7 +58,7 @@ function renderFoodList(foodList) {
             li.innerHTML = `<img src="${food.strMealThumb}" height="50px" width="50px">
                             <a href="./detail.html?mealID=${food.idMeal}"><span>${food.strMeal}</span></a>
                             <div class="btnContainer">
-                            <i class="fa fa-heart favBtn ${(favouriteArr.includes(food.idMeal)) ? "active" : ""}" data-id="${food.idMeal}"></i>
+                            <i class="fa fa-heart favBtn ${(favouriteArr?.includes(food.idMeal)) ? "active" : ""}" data-id="${food.idMeal}"></i>
                             </div>`;
             list.append(li);
         });
@@ -83,7 +83,7 @@ function renderFoodCatalog(data) {
                 </div>
               </div>
               <div class="card-overlay">
-                <i data-id="${food.idMeal}" class="fa fa-heart favBtn ${(favouriteArr.includes(food.idMeal)) ? "active" : ""}"></i>
+                <i data-id="${food.idMeal}" class="fa fa-heart favBtn ${(favouriteArr?.includes(food.idMeal)) ? "active" : ""}"></i>
                 <a href="./detail.html?mealID=${food.idMeal}">
                 <p class="text-light">View Full recipe</p></a>
               </div>`;
